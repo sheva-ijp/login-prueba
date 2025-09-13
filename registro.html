@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de usuarios</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        input, button { margin: 5px 0; padding:5px; }
+        table { width:100%; border-collapse: collapse; margin-top:20px; }
+        th, td { border: 1px solid black; padding: 5px; text-align:center; }
+    </style>
+</head>
+<body>
+    <h1>Formulario de registro</h1>
+    <form id="formRegistro">
+        <input type="text" name="nombre" placeholder="Nombre" required><br>
+        <input type="text" name="apellido" placeholder="Apellido" required><br>
+        <input type="tel" name="telefono" placeholder="Teléfono" required><br>
+        <input type="email" name="correo" placeholder="Correo" required><br>
+        <input type="number" name="edad" placeholder="Edad" required><br>
+        <input type="text" name="usuario" placeholder="Nombre de usuario" required><br>
+        <input type="password" name="contrasena" placeholder="Contraseña" required><br>
+        <input type="password" name="repetirContrasena" placeholder="Repetir contraseña" required><br>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <h2>Usuarios registrados</h2>
+    <table id="tablaUsuarios">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se agregan los usuarios -->
+        </tbody>
+    </table>
+
+    <script>
+        const form = document.getElementById('formRegistro');
+        const tabla = document.getElementById('tablaUsuarios').querySelector('tbody');
+
+        // Cargar usuarios existentes en la tabla al abrir la página
+        const cargarUsuarios = () => {
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            tabla.innerHTML = ""; // Limpiar tabla antes de agregar
+            usuarios.forEach(datos => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `<td>${datos.usuario}</td>
+                                  <td>${datos.nombre}</td>
+                                  <td>${datos.apellido}</td>
+                                  <td>${datos.telefono}</td>
+                                  <td>${datos.correo}</td>
+                                  <td>${datos.edad}</td>`;
+                tabla.appendChild(fila);
+            });
+        };
+
+        cargarUsuarios();
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+
+            const usuario = form.usuario.value;
+            const contrasena = form.contrasena.value;
+            const repetirContrasena = form.repetirContrasena.value;
+
+            if(contrasena !== repetirContrasena){
+                alert("Las contraseñas no coinciden");
+                return;
+            }
+
+            const datos = {
+                usuario: usuario,
+                contrasena: contrasena,
+                nombre: form.nombre.value,
+                apellido: form.apellido.value,
+                telefono: form.telefono.value,
+                correo: form.correo.value,
+                edad: form.edad.value
+            };
+
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            usuarios.push(datos);
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+            const fila = document.createElement('tr');
+            fila.innerHTML = `<td>${datos.usuario}</td>
+                              <td>${datos.nombre}</td>
+                              <td>${datos.apellido}</td>
+                              <td>${datos.telefono}</td>
+                              <td>${datos.correo}</td>
+                              <td>${datos.edad}</td>`;
+            tabla.appendChild(fila);
+
+            form.reset();
+            alert("Usuario registrado correctamente");
+        });
+    </script>
+</body>
+<script src="js/registro.js"></script>
+</html>
