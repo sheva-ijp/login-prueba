@@ -1,165 +1,132 @@
 * {
-    font-family: "Poppins", sans-serif; /* Usa la fuente Poppins para todos los elementos */
-    margin: 0; /* Elimina los márgenes por defecto del navegador */
-    padding: 0; /* Elimina los rellenos por defecto del navegador */
-    box-sizing: border-box; /* Hace que el padding y border no aumenten el tamaño total del elemento */
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #fff0f5; /* Color de fondo rosado claro */
-    width: 100%; /* Ocupa todo el ancho de la ventana */
-    min-height: 100vh; /* Altura mínima igual a la altura de la pantalla */
-    display: flex; /* Usa flexbox para organizar los hijos */
-    flex-direction: column; /* Acomoda los hijos en columna */
-    justify-content: space-between; /* Distribuye los hijos con espacio entre ellos */
+    background-color: #fff0f5;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .contenedor {
-    background: #eeb0bc; /* Fondo rosado */
-    width: 340px; /* Ancho fijo */
-    margin: 40px auto; /* Centrado horizontal y margen superior */
-    padding: 30px; /* Espacio interno */
-    border-radius: 110px; /* Bordes muy redondeados */
-    border: solid 10px; /* Borde sólido (color por defecto del navegador) */
-    backdrop-filter: blur(40px); /* Desenfoque del fondo detrás */
-    box-shadow: 0px 0px 0px 10px 0px rgb(13, 234, 212); /* Sombra alrededor de la caja (esta línea tiene valores extra, podría corregirse) */
-    color: #590638; /* Color del texto en el contenedor */
-    display: flex; /* Flexbox para organizar los hijos */
-    flex-direction: column; /* Hijos en columna */
-    align-items: center; /* Centrado horizontal */
-    animation: fadeInUp 1s ease-out; /* Animación de entrada */
+    background: #eeb0bc;
+    width: 340px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 110px;
+    border: solid 10px;
+    backdrop-filter: blur(40px);
+    color: #590638;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 1s ease-out;
 }
 
 .acceso-titulo {
-    margin-bottom: 30px; /* Espacio debajo del título */
+    margin-bottom: 30px;
 }
 
 .caja-de-entrada {
-    display: flex; /* Flexbox para el input e ícono */
-    width: 100%; /* Ancho completo */
-    position: relative; /* Para posicionar íconos dentro */
-    margin-top: 20px; /* Espacio superior */
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
 }
 
 .caja-de-entrada input {
-    width: 100%; /* Ancho completo */
-    padding: 10px 16px 10px 38px; /* Padding con más espacio a la izquierda para ícono */
-    border-radius: 1000px; /* Bordes muy redondeados */
-    border: solid 6px #590638; /* Borde de color morado oscuro */
-    background: black; /* Fondo negro */
-    outline: none; /* Elimina borde al enfocar */
-    caret-color: rgb(226, 209, 13); /* Color del cursor (amarillo) */
-    color: white; /* Texto blanco */
-    font-size: 16px; /* Tamaño del texto */
-    transition: 0.25s; /* Transición suave para cambios */
+    width: 100%;
+    padding: 10px 40px 10px 38px; /* espacio para candado y ojo */
+    border-radius: 1000px;
+    border: solid 6px #590638;
+    background: black;
+    outline: none;
+    caret-color: rgb(226, 209, 13);
+    color: white;
+    font-size: 16px;
+    transition: 0.25s;
 }
 
 .caja-de-entrada input::placeholder {
-    color: rgba(255, 255, 255, 0.75); /* Color semitransparente del placeholder */
-}
-
-.caja-de-entrada input::-ms-reveal {
-    filter: invert(100%); /* Ajuste de ícono de mostrar contraseña en Edge/IE */
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .caja-de-entrada i {
-    position: absolute; /* Posicionamiento absoluto dentro del input */
-    top: 50%; /* Centrado vertical */
-    transform: translateY(-50%); /* Ajuste para centrar el ícono */
-    left: 14px; /* Espacio desde el borde izquierdo */
-    color: rgba(255, 255, 255, 0.75); /* Color claro para ícono */
-    font-size: 18px; /* Tamaño del ícono */
-    transition: 0.25s; /* Transición para efectos */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 18px;
 }
 
-.caja-de-entrada input + i {
-    color: white; /* Asegura color blanco para íconos que siguen a un input */
+.caja-de-entrada .bxs-user {
+    left: 14px;
+}
+
+.caja-de-entrada .bxs-lock-alt {
+    left: 14px;
+}
+
+.caja-de-entrada .toggle-password {
+    right: 14px;   /* 👈 aquí se pone al extremo derecho */
+    cursor: pointer;
 }
 
 .recuerdame-caja {
-    width: 100%; /* Ancho completo */
-    margin-top: 20px; /* Espacio superior */
-    display: flex; /* Flexbox */
-    flex-direction: column; /* Hijos en columna */
-    align-items: center; /* Centrado horizontal */
-    gap: 10px; /* Espacio entre elementos */
-}
-
-.recuerdame {
-    display: flex; /* Flexbox */
-    align-items: center; /* Centrado vertical */
-    gap: 5px; /* Espacio entre checkbox y texto */
-    justify-content: center; /* Centrado horizontal */
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .login-button {
-    margin-top: 20px; /* Espacio superior */
-    padding: 10px 30px; /* Padding interno */
-    border-radius: 50px; /* Bordes redondeados */
-    border: none; /* Sin borde */
-    background-color: white; /* Fondo blanco */
-    color: black; /* Texto negro */
-    font-weight: bold; /* Negrita */
-    cursor: pointer; /* Cambia cursor al pasar */
-    transition: 0.3s; /* Transición para efectos */
+    margin-top: 20px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .login-button:hover {
-    background-color: #ddd; /* Color al pasar el mouse */
-    transform: scale(1.05); /* Aumenta tamaño ligeramente */
+    background-color: #ddd;
+    transform: scale(1.05);
 }
 
 .dont-have-an-count {
-    margin-top: 20px; /* Espacio superior */
-    text-align: center; /* Texto centrado */
+    margin-top: 20px;
+    text-align: center;
 }
 
 .olvido-contrasena {
-    width: 100%; /* Ancho completo */
-    margin-top: 50px; /* Espacio superior grande */
-    text-align: center; /* Texto centrado */
-}
-
-.olvido-contrasena h5 {
-    font-weight: normal; /* Peso normal de fuente */
-    font-size: 14px; /* Tamaño pequeño */
-    margin: 0; /* Sin margen */
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
 }
 
 .forgot-password {
-    color: white; /* Texto blanco */
-    text-decoration: none; /* Sin subrayado */
+    color: white;
+    text-decoration: none;
 }
 
 .forgot-password:hover {
-    text-decoration: underline; /* Subrayado al pasar el mouse */
+    text-decoration: underline;
 }
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0; /* Inicio invisible */
-        transform: translateY(20px); /* Posición inicial desplazada abajo */
-    }
-    100% {
-        opacity: 1; /* Final visible */
-        transform: translateY(0); /* Posición original */
-    }
-}
-
-.contenedor {
-    animation: fadeInUp 1s ease-out; /* Aplicación de la animación */
-}
-
-.header {
-    background-color: #590638; /* Fondo morado oscuro */
-    color: white; /* Texto blanco */
-    padding: 20px; /* Espacio interno */
-    text-align: center; /* Centrado de texto */
-}
-
-.footer {
-    background-color: #590638; /* Igual al header */
-    color: white; /* Texto blanco */
-    padding: 15px; /* Espacio interno */
-    text-align: center; /* Centrado de texto */
+.header, .footer {
+    background-color: #590638;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }

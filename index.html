@@ -1,111 +1,63 @@
 <!DOCTYPE html>
-<!-- Declara que este es un documento HTML5 -->
 <html lang="en">
-<!-- Inicio del documento HTML con idioma inglés -->
-
 <head>
     <meta charset="UTF-8">
-    <!-- Define el tipo de codificación de caracteres (UTF-8) -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Hace que la página sea responsive en dispositivos móviles -->
-
     <link rel="stylesheet" href="css/style.css">
-    <!-- Enlace al archivo CSS externo para los estilos -->
-
     <title>Login</title>
-    <!-- Título que se muestra en la pestaña del navegador -->
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
-
 <body>
-    <!-- Comienza el cuerpo del documento -->
 
     <header class="header">
-        <!-- Encabezado de la página -->
         <h1>Bienvenido a mi página de prueba de acceso.</h1>
-        <!-- Título principal en la parte superior -->
     </header>
 
     <form class="contenedor">
-        <!-- Formulario principal con clase contenedor (estilizado con CSS) -->
-
         <h1 class="acceso-titulo">Bienvenido</h1> 
-        <!-- Título dentro del formulario -->
 
+        <!-- Usuario -->
         <section class="caja-de-entrada">
-            <!-- Primer campo: entrada para el nombre de usuario -->
-            <input type="text" name="usuario" placeholder="Usuario">
-            <!-- Input para escribir el usuario -->
             <i class='bx bxs-user'></i>
-            <!-- Ícono de usuario (requiere librería Boxicons para mostrarse) -->
+            <input type="text" name="usuario" placeholder="Correo/Usuario">
         </section>
 
-        <section class="caja-de-entrada">
-            <!-- Segundo campo: entrada para la contraseña -->
-            <input type="password" placeholder="Contraseña">
-            <!-- Input para escribir la contraseña -->
+        <!-- Contraseña con ojito -->
+        <section class="caja-de-entrada password-container">
             <i class='bx bxs-lock-alt'></i>
-            <!-- Ícono de candado (requiere librería Boxicons para mostrarse) -->
+            <input type="password" id="password" name="contrasena" placeholder="Contraseña">
+            <i class='bx bx-hide toggle-password' id="togglePassword"></i>
         </section>
 
+        <!-- Recuérdame -->
         <section class="recuerdame-caja">
-            <!-- Sección para el checkbox "Recuérdame" -->
             <input type="checkbox" name="remember-me" id="remember-me">
-            <!-- Checkbox -->
             <label for="remember-me">Recuérdame</label>
-            <!-- Etiqueta del checkbox -->
         </section>
         
+        <!-- Olvido contraseña -->
         <section class="olvido-contrasena">
-            <!-- Sección para enlace de recuperación de contraseña -->
             <a href="#" class="forgot-password">
                 <h5>¿Olvidaste tu contraseña?</h5>
             </a>
         </section>
 
+        <!-- Botón -->
         <button class="login-button" type="submit">
-            <!-- Botón para iniciar sesión -->
             Iniciar sesión
         </button>
 
         <h5 class="dont-have-an-count">
-            <!-- Enlace para registrarse si no tiene cuenta -->
-            ¿No tienes cuenta?<a href="registro.html"><b>Registrate</b></a>
+            ¿No tienes cuenta? <a href="registro.html"><b>Regístrate</b></a>
         </h5>
     </form>
 
     <footer class="footer">
-        <!-- Pie de página -->
-        <p>© 2025 Todos los derechos reservados</p>
-        <!-- Texto del footer -->
+        <p>© 2025 Todos los derechos reservados(TamzIs)</p>
     </footer>
 
+    <!-- Script externo -->
     <script src="js/login.js"></script>
-
 </body>
-
-<script>
-const form = document.querySelector('.contenedor');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Evita que se recargue la página
-
-    // Captura los datos del formulario
-    const usuario = form.querySelector('input[name="usuario"]').value;
-    const contrasena = form.querySelector('input[type="password"]').value;
-
-    // Datos de prueba para validar
-    const usuarioValido = "admin";
-    const contrasenaValida = "1234";
-
-    if(usuario === usuarioValido && contrasena === contrasenaValida){
-        // Si es correcto, redirige a bienvenido.html
-        window.location.href = "bienvenido.html";
-    } else {
-        // Si es incorrecto, redirige a error.html
-        window.location.href = "error.html";
-    }
-});
-</script>
 </html>
